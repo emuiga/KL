@@ -788,6 +788,30 @@
             console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
         }
         // ]]>
+        document.addEventListener("DOMContentLoaded", function() {
+  const sections = document.querySelectorAll("section");  // Select all sections
+  const navLinks = document.querySelectorAll(".nav a");   // Select all nav links
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute("id");
+        const navLink = document.querySelector(`.nav a[href="#${id}"]`);
+
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => link.classList.remove("active"));
+          navLink.classList.add("active");
+        }
+      });
+    },
+    { threshold: 0.7 } // Adjust this value to control how much of the section must be in view to trigger
+  );
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+});
+
     </script>
 </body>
 </html>
