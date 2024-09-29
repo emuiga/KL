@@ -1487,3 +1487,12 @@ to {
 }
 .__variable_20b187 {
     --font-inter: "__inter_20b187", "__inter_Fallback_20b187"}
+
+.nav a.active .nav-indicator {
+    width: 16px;
+    background-color: #fff; 
+}
+
+.nav a.active .nav-text {
+    color: #fff; 
+}
